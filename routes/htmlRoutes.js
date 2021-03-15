@@ -1,16 +1,16 @@
-const app = require('express').Router()
+const router = require('express').Router()
 const path = require('path')
 
 
-app.get("/exercise", (rec, res) => {
+router.get("/exercise", (rec, res) => {
     res.sendFile(path.join(__dirname, "../public/exercise.html"))
 })
-app.get("*", (rec, res) => {
-    res.sendFile(path.join(__dirname, "../public/index.html"))
-})
-app.get("./stats", (rec, res) => {
+// app.get("*", (rec, res) => {
+//     res.sendFile(path.join(__dirname, "../public/index.html"))
+// })
+router.get("/stats", (rec, res) => {
     res.sendFile(path.join(__dirname, "../public/stats.html"))
 })
 
-module.exports = app
+module.exports = router
 //html routs link html files to specified url end point
