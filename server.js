@@ -3,15 +3,19 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const apiRoutes = require("./routes/apiRoutes");
 const htmlRoutes = require("./routes/htmlRoutes");
-const PORT = 3000;
-
+const port_number = server.listen(process.env.PORT || 3000);
+app.listen(port_number);
 const app = express();
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-mongoose.connect("mongodb://localhost/Workout", {
+mongoose.connect(
+  process.env.MONGODB_URL || "mongodb://localhost/Workout",
+{
   useNewUrlParser: true,
+  useFindAndModify: false,
+  useCreateIndex: true,
   useFindAndModify: false
 });
 app.use(require("./routes/apiRoutes"));
