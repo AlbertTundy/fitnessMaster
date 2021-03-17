@@ -13,7 +13,6 @@ app.put('/api/workouts/:id', ({ body, params }, res) => {
   Workout.findByIdAndUpdate(
     params.id,
     { $push: { exercises: body } },
-    // "runValidators" will ensure new exercises meet our schema requirements
     { new: true, runValidators: true }
   )
     .then((dbWorkout) => {
@@ -53,7 +52,6 @@ app.get('/api/workouts/range', (req, res) => {
     .sort({ _id: -1 })
     .limit(7)
     .then((dbWorkouts) => {
-      console.log(dbWorkouts);
       res.json(dbWorkouts);
     })
     .catch((err) => {
