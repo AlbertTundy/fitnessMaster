@@ -24,6 +24,8 @@
   Open for branching
   ## Tests:
   N.A.
+  ## Photos:
+  ![TrackingTheLifts](public/assets/images/appPhoto.png)
   ## Questions: 
   [github.com/AlbertTundy](http://github.com/AlbertTundy)<br/>
   ### email me at: 
